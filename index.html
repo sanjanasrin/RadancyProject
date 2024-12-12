@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nav Bar</title>
+
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/css/greenContent.css" />
+    <link rel="stylesheet" href="/css/review.css" />
+    <link rel="stylesheet" href="/css/privacy.css" />
+  </head>
+  <body>
+    <div id="navbar"></div>
+    <div id="rectangle"></div>
+    <div id="main-content"></div>
+    <div id="split-content"></div>
+    <div id="GreenContent-card"></div>
+    <div id="review-card"></div>
+    <div id="privacy-card"></div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const components = [
+          { id: "navbar", url: "./components/navbar.html" },
+          { id: "rectangle", url: "./components/rectangle.html" },
+          { id: "main-content", url: "./components/mainContent.html" },
+          { id: "split-content", url: "./components/splitContent.html" },
+          { id: "GreenContent-card", url: "./components/greenContent.html" },
+          { id: "review-card", url: "./components/review.html" },
+          { id: "privacy-card", url: "./components/privacy.html" },
+        ];
+
+        components.forEach(({ id, url }) => {
+          fetch(url)
+            .then((response) => {
+              if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+              }
+              return response.text();
+            })
+            .then((data) => {
+              document.getElementById(id).innerHTML = data;
+            })
+            .catch((err) => console.error(`${id} fetch error:`, err));
+        });
+      });
+    </script>
+  </body>
+</html>

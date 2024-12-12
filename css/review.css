@@ -1,0 +1,69 @@
+/* Container for multiple review cards */
+.review-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  justify-content: center;
+  align-items: start;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+/* Individual review cards */
+.review-card {
+  width: 100%;
+  max-width: 400px;
+  margin: auto;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Review image styling */
+.review-image-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.review-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #ddd;
+}
+
+/* Review text */
+.review-text {
+  color: grey;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  position: relative;
+  margin: 10px 80px;
+  font-style: italic;
+}
+
+/* Reviewer name */
+.review-textname {
+  font-family: "Georgia", serif;
+  color: #009e77;
+  font-size: 1rem;
+  line-height: 1.6;
+  position: relative;
+  font-style: italic;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .review-container {
+    grid-template-columns: 1fr; /* Single column layout for small screens */
+  }
+
+  .review-text {
+    font-size: 1rem;
+    line-height: 1;
+    margin: 10px 40px;
+  }
+}
